@@ -1,0 +1,18 @@
+
+  <h2>Mes notes ({{ notes.length }})</h2>
+
+  <!-- Boucle avec récupération de l'index ($index) -->
+  @for (note of notes; track note; let i = $index) {
+  <div class="note-item">
+    <span>{{ note }}</span>
+    <!-- Bouton de suppression -->
+    <button class="btn-supprimer" (click)="supprimer(i)">✕</button>
+  </div>
+  }
+
+  <!-- Formulaire d'ajout -->
+  <div class="form-ajout">
+    <input type="text" #champSaisie placeholder="Nouvelle note..." (keyup.enter)="ajouter(champSaisie.value); champSaisie.value=''">
+    <button class="btn-ajouter" (click)="ajouter(champSaisie.value); champSaisie.value=''">Ajouter</button>
+  </div>
+
